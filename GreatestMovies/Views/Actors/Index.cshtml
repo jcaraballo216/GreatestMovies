@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<GreatestMovies.Models.Actor>
 
-@{
-    ViewBag.Title = "Index";
-}
+<div class="title">
+    @{
+        ViewBag.Title = "Index";
+    }
 
-<h2>Index</h2>
-
+    <h2>Index</h2>
+</div>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -13,10 +14,13 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-4">
-                <h1>
-                    Actor's Name: @Html.DisplayFor(modelItem => item.ActorName)
+        <div class="col-md-6">
+            <div class="thumbnail picture">
+                <h1 class="actorsName">
+
+                    @Html.DisplayFor(modelItem => item.ActorName)
                 </h1>
+
                 <h4>
                     This actor was born on: @Html.DisplayFor(modelItem => item.DOB)
                 </h4>
@@ -32,6 +36,7 @@
                     @Html.ActionLink("Delete", "Delete", new { id = item.ActorID })
                 </p>
             </div>
+        </div>
     }
 </div>
 
